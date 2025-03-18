@@ -14,7 +14,7 @@ jobs:
       - name: Continue on error step
         continue-on-error: true
         run: |
-          echo "I will fail"
+          echo "I will fail but continue"
           exit 1
       - name: Say goodbye
         run: echo "Goodbye!"
