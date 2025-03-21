@@ -12,16 +12,24 @@
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  let ctx = document.getElementById('canvas').getContext('2d');
+  const canvas = document.getElementById('canvas');
 
-  console.log(ctx);
+  if (!canvas) {
+    console.log('Canvas not supported');
+    console.error('Canvas not supported');
+    return;
+  }
+  if (canvas.getContext) {
+    let ctx = canvas.getContext('2d');
+    console.log(ctx);
+    ctx.fillRect(10, 20, 50, 50);
+    ctx.fillStyle = 'rgb(0, 255, 0)';
+    ctx.fillRect(10, 20, 50, 50);
+    ctx.strokeStyle = 'rgb(0, 182, 0)';
+    ctx.lineWidth = 5;
+    ctx.strokeRect(9, 19, 52, 52); // draws an outline of the rectangle
+  }
 
-  ctx.fillRect(10, 20, 50, 50);
-  ctx.fillStyle = 'rgb(0, 255, 0)';
-  ctx.fillRect(10, 20, 50, 50);
-  ctx.strokeStyle = 'rgb(0, 182, 0)';
-  ctx.lineWidth = 5;
-  ctx.strokeRect(9, 19, 52, 52); // draws an outline of the rectangle
 
 });
 
